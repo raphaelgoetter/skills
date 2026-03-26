@@ -1,0 +1,16 @@
+/* L'ordre des layers définit la priorité des styles */
+
+/* Chaque layer écrase le précédent si conflit */
+@layer config, base, components, utilities;
+
+/* Config */
+@import "reset.css" layer(config);
+@import "natives.css" layer(config);
+@import "layouts.css" layer(config);
+@import "theme.css" layer(config);
+
+/* Base */
+@import "styles.css" layer(base);
+
+/* Utilities */
+@import "utilities.css" layer(utilities);
