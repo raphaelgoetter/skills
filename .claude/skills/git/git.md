@@ -2,21 +2,30 @@
 
 Ce document rassemble les bonnes pratiques appliquées par l'agence web [Alsacreations.fr](https://www.alsacreations.fr/) concernant **"Git"**. Ces indications sont destinées à évoluer dans le temps et à s'adapter à chaque nouveau projet.
 
+## Résumé
+
+- Utilise le format des conventional commits : `type(scope): description`
+- Rédige à l’impératif : « Ajoute une fonctionnalité » et non « Fonctionnalité ajoutée »
+- Limite la ligne de sujet à 150 caractères maximum
+- Utilise les types suivants : feat (fonctionnalité), fix (correction), docs (documentation), style (style de texte, indentation), refactor (refactorisation), perf (performance), test (test), chore (tâches diverses), ci (intégration continue)
+- Ajoute une étendue si pertinent (ex. : api, ui, auth)
+- **Rédige le message de commit en français**
+
 ## Conventional Commits
 
-▶️ Nous respectons les *Conventional Commits* <https://www.conventionalcommits.org/fr/v1.0.0/>
+▶️ Nous respectons les _Conventional Commits_ <https://www.conventionalcommits.org/fr/v1.0.0/>
 
-- **build**: Changements relatifs au processus de *build* ou dépendances comme vite ou npm.
+- **build**: Changements relatifs au processus de _build_ ou dépendances comme vite ou npm.
 - **ci**: Changements des fichiers de configurations de la CI comme workflows GitHub.
 - **docs**: Changements relatifs à la documentation du projet (wiki, readme, commentaires).
 - **feat**: Changements qui ajoutent un nouvelle fonctionnalité.
   - Dans le cas d'un site, c'est une fonctionnalité pour l'utilisateur final.
-  - Dans le cas d'un projet du type "framework css" comme Bretzel, une *feature* est l'ajout d'une nouvelle classe CSS par exemple.
+  - Dans le cas d'un projet du type "framework css" comme Bretzel, une _feature_ est l'ajout d'une nouvelle classe CSS par exemple.
 - **fix**: Changements qui corrigent un bug visible pour l'utilisateur final.
   - Pour savoir si le commit est vraiment un fix ou non, se poser la question: "Mon commit vaut-il le coup d'être affiché dans un changelog ou non ?"
     - Si oui, c'est un `fix:`.
 - **perf**: Changements qui améliorent la performance du projet.
-- **refactor**: Changements qui ne sont ni un bug ni une *feature*.
+- **refactor**: Changements qui ne sont ni un bug ni une _feature_.
   - Exemple: j'arrive à reproduire le même fonctionnement qu'avant mais en supprimant 50 lignes de code.
   - Exemple: je renomme une fonction mais le fonctionnement reste le même.
 - **style**: Changements qui ne modifient pas le fonctionnement du code.
@@ -27,40 +36,12 @@ Ce document rassemble les bonnes pratiques appliquées par l'agence web [Alsacre
 
 ## Git flow, branches
 
-| branche | rôle |
-| ------- | ---- |
-| main    | code en production (= en ligne sur le serveur d'hébergement) |
-| develop | développements en cours avant d’être fusionnés dans main |
-| feat/*nomfeature* | développement d'une fonctionnalité, à partir de develop |
-| fix/*nomfix* | correction de bug |
-
-Schéma :
-
-```mermaid
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showCommitLabel': false}} }%%
-gitGraph
-   commit
-   branch develop
-   checkout develop
-   commit
-   commit
-   branch feat/something
-   checkout feat/something
-   commit
-   commit
-   checkout develop
-   merge feat/something
-   commit
-   branch fix/something
-   checkout fix/something
-   commit
-   checkout develop
-   merge fix/something
-   commit
-   checkout main
-   merge develop
-   commit
-```
+| branche           | rôle                                                         |
+| ----------------- | ------------------------------------------------------------ |
+| main              | code en production (= en ligne sur le serveur d'hébergement) |
+| develop           | développements en cours avant d’être fusionnés dans main     |
+| feat/_nomfeature_ | développement d'une fonctionnalité, à partir de develop      |
+| fix/_nomfix_      | correction de bug                                            |
 
 💡 Penser à reprendre les références (#issue ou #tâche) dans le nom de la branche / les messages de commit.
 
