@@ -5,6 +5,14 @@
 
 ---
 
+## Quand utiliser ce prompt
+
+Lancer ce prompt quand :
+
+- Nouveau projet, pas encore d'architecture IA en place
+- README.md déjà rédigé avec nom du projet et stack technique
+- Pas encore d'architecture IA type dans le dépôt
+
 ## Prompt
 
 ````
@@ -16,9 +24,9 @@ pour Claude Code et GitHub Copilot sur ce projet.
 
 ## Contexte projet
 
-- Nom du projet : [MON_PROJET]
-- Stack technique : HTML/CSS vanilla, Vue.js 3 (Composition API), accessibilité RGAA/WCAG
-- Package manager : pnpm
+- Nom du projet : (dans README.md)
+- Stack technique : (dans README.md)
+- Package manager : (dans README.md)
 - Commandes principales :
   - `pnpm dev` — serveur de développement
   - `pnpm build` — build de production
