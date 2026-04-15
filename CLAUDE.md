@@ -16,13 +16,39 @@
 
 ---
 
-## Comportement général
+## Comportement de l'agent
+
+### Réfléchir avant de coder
 
 - Répondre en **français** sauf pour le code et les identifiants techniques
-- Ne jamais modifier un fichier sans l'avoir lu en entier au préalable
-- Toujours proposer une explication courte des choix effectués
-- En cas de doute sur une intention, poser une seule question ciblée avant d'agir
-- Privilégier la lisibilité et la maintenabilité à la concision
+- Formuler explicitement les suppositions avant d'agir
+- Si plusieurs interprétations sont possibles, les présenter toutes — ne jamais en choisir une silencieusement
+- Si une approche plus simple existe, la signaler
+- En cas de confusion, s'arrêter, nommer ce qui est flou, demander — ne pas avancer dans le brouillard
+- Pousser en arrière quand c'est justifié : une mauvaise demande mérite une question, pas une exécution
+
+### Privilégier la simplicité
+
+- Code minimum qui résout le problème — rien de spéculatif
+- Pas de fonctionnalité au-delà de ce qui est demandé
+- Pas d'abstraction pour du code à usage unique
+- Pas de "flexibilité" ou de "configurabilité" non demandées
+- Si 200 lignes peuvent en être 50, les réécrire
+- Test : "Un développeur senior dirait-il que c'est trop compliqué ?" — si oui, simplifier
+
+### Modifications chirurgicales
+
+- Toucher uniquement ce qui est nécessaire à la tâche
+- Ne pas reformater, renommer ou réorganiser du code orthogonal à la demande
+- Conserver le style existant du fichier, même s'il diffère des préférences par défaut
+- Ne jamais supprimer un commentaire ou du code non compris sous prétexte qu'il semble inutile
+
+### Exécution orientée objectif
+
+- Transformer les instructions impératives en critères de succès vérifiables
+- Avant d'implémenter : définir à quoi ressemble "terminé" et comment le vérifier
+- Itérer jusqu'à ce que les critères soient satisfaits — pas jusqu'à ce que le code "semble correct"
+- Signaler explicitement quand un critère de succès ne peut pas être vérifié automatiquement
 
 ---
 
@@ -31,11 +57,9 @@
 **Règles cardinales (toujours actives) :**
 
 - Préférer le CSS Vanilla natif et les custom properties, éviter les frameworks CSS sauf besoin projet.
-- Structurer les styles via `app.css` et charger les fichiers dans l’ordre d’@layer : `config`, `base`, `components`, `utilities`.
 - Isoler les composants avec `@scope` et utiliser `@layer` pour gérer la priorité des fichiers.
-- Respecter l’ordre SMACSS des propriétés : positionnement → modèle de boîte → typographie → visuel → animation.
 - Ne jamais coder de valeurs en dur pour les couleurs, espacements, typographies ou bordures : utiliser des variables CSS.
-- Limiter le nesting à un seul niveau pour garder une spécificité faible et prévisible.
+- Limiter le nesting à un seul niveau (2 maximum) pour garder une spécificité faible et prévisible.
 
 **Pour une tâche CSS spécifique :** utiliser le skill `/css-guidelines`
 → `.claude/skills/css/SKILL.md`
@@ -89,18 +113,6 @@ Ces règles ne sont pas négociables et s'appliquent à chaque modification :
 - Encapsuler le code dans des closures ou des modules pour isoler les variables et éviter les conflits externes.
 - Utiliser le naming lowerCamelCase et des noms explicites, surtout pour la manipulation du DOM.
 - Ne jamais laisser de `console.log()` ou `eval()` dans le code de production.
-
----
-
-## Git
-
-- Respecter le format Conventional Commits : `type(scope): description`.
-- Choisir le type de commit adapté à l’intention réelle du changement.
-- Nommer les branches de façon structurée : `main`, `develop`, `feat/*`, `fix/*`, avec référence d’issue si possible.
-- Utiliser `develop` pour les travaux en cours et `main` pour le code prêt pour la production.
-- Faire des `git pull` réguliers et communiquer pour réduire les conflits.
-- Résoudre les conflits manuellement puis ajouter et commit les fichiers résolus.
-- Ne pas committer de fichiers générés, secrets ou `node_modules`.
 
 ---
 
