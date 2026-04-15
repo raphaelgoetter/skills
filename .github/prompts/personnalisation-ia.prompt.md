@@ -92,7 +92,7 @@ Pour chaque fichier : affiche le contenu complet final, pas un diff.
 Personnaliser :
 - Section "Projet" : nom, description, stack réel, commandes réelles
 - Section "CSS" : ajuster les règles cardinales si des conventions spécifiques
-  sont mentionnées dans README.md (ex. : usage de Tailwind, CSS Modules, SCSS…)
+  sont mentionnées dans README.md (ex. : usage Vanilla, @scope, …)
 - Section "Vue.js" ou équivalent : adapter au framework réel du projet
   (si ce n'est pas Vue, réécrire la section pour le bon framework)
 - Section "Git" : adapter aux conventions de commit du projet si précisées
@@ -102,7 +102,7 @@ Personnaliser :
 Ne pas toucher :
 - Section "Accessibilité" — règles universelles
 - Section "Ce que Claude ne doit pas faire" — valable pour tous les projets
-- Section "Comportement général"
+- Section "Comportement de l'agent" : les 4 principes de Karpathy doivent y figurer (Réfléchir avant de coder, Privilégier la simplicité, Modifications chirurgicales, Exécution orientée objectif)
 
 ### `AGENTS.md`
 
